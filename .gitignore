@@ -1,0 +1,19 @@
+.DS_Store
+.impeccable/
+node_modules/
+dist/
+/Partner Readiness Lab.app/
+macos/.build/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+config.local.*
+local/
+local_bk/
+/screenshots/
+/recordings/
+*.mp4
+*.webm
+# Local secrets written by `elevenlabs onboard`
+/.env.local

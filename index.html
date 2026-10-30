@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A two-track ElevenAgents SI partner readiness lab with live voice, transparent local coaching, and human FDE review.">
+  <title>Partner Readiness Lab | Northstar Conversation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to the workspace</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Partner Readiness Lab home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>Partner Readiness Lab</span>
+    </a>
+    <div class="header-actions">
+      <span class="prototype-label">Independent SI rehearsal</span>
+      <button class="text-button" id="practice-review" type="button">Practice FDE</button>
+      <button class="text-button" id="restart-lab" type="button">Restart</button>
+      <button class="text-button danger-text" id="reset-lab" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="lab-heading" aria-labelledby="lab-title">
+      <div>
+        <h1 id="lab-title">The Northstar conversation</h1>
+        <p class="lab-deck">Prepare as an SI partner. Discover first, respond with evidence, and earn the right next step.</p>
+      </div>
+      <dl class="lab-facts">
+        <div><dt>Target</dt><dd>12 minutes</dd></div>
+        <div><dt>Listening goal</dt><dd>80 / 20</dd></div>
+        <div><dt>Decision</dt><dd>Human FDE</dd></div>
+      </dl>
+    </section>
+
+    <ol class="certification-loop" aria-label="Certification flow">
+      <li data-loop="prepare" class="is-active"><span>1</span><div><strong>Prepare</strong><small>Dossier and track</small></div></li>
+      <li data-loop="conversation"><span>2</span><div><strong>Conversation</strong><small>Live customer exchange</small></div></li>
+      <li data-loop="evaluation"><span>3</span><div><strong>Evaluation</strong><small>Session and native evidence</small></div></li>
+      <li data-loop="review"><span>4</span><div><strong>FDE review</strong><small>Track-specific judgment</small></div></li>
+    </ol>
+
+    <div class="workspace" id="workspace">
+      <aside class="support-rail" aria-label="Preparation resources">
+        <div class="rail-tabs" role="tablist" aria-label="Preparation views">
+          <button id="tab-dossier" role="tab" aria-selected="true" aria-controls="panel-dossier" data-tab="dossier" tabindex="0">Dossier</button>
+          <button id="tab-talk" role="tab" aria-selected="false" aria-controls="panel-talk" data-tab="talk" tabindex="-1">Talk track</button>
+          <button id="tab-resources" role="tab" aria-selected="false" aria-controls="panel-resources" data-tab="resources" tabindex="-1">Resources</button>
+        </div>
+        <div id="panel-dossier" class="rail-panel" role="tabpanel" aria-labelledby="tab-dossier"></div>
+        <div id="panel-talk" class="rail-panel" role="tabpanel" aria-labelledby="tab-talk" hidden></div>
+        <div id="panel-resources" class="rail-panel" role="tabpanel" aria-labelledby="tab-resources" hidden></div>
+      </aside>
+
+      <section class="conversation-stage" aria-labelledby="conversation-title">
+        <div class="stage-header">
+          <div class="persona">
+            <span class="persona-monogram" aria-hidden="true">MC</span>
+            <div><h2 id="conversation-title">Maya Chen</h2><p>VP of Customer Experience, fictional Northstar Telecom</p></div>
+          </div>
+          <span class="status-badge" id="session-status" data-state="setup"><span aria-hidden="true"></span>Setup</span>
+        </div>
+
+        <div class="stage-body">
+          <section id="setup-panel" class="setup-panel">
+            <h3>Choose your readiness track</h3>
+            <p>You are from an external ElevenLabs SI partner organization, not ElevenLabs staff. Both tracks use the same fictional customer.</p>
+            <div class="track-picker" role="group" aria-label="Learning track">
+              <button type="button" data-track="seller" aria-pressed="true"><strong>Partner seller</strong><span>Value, discovery, commercial progression</span></button>
+              <button type="button" data-track="solutions-consultant" aria-pressed="false"><strong>Partner solutions consultant</strong><span>Technical discovery and validation</span></button>
+            </div>
+            <div class="track-outcome" id="track-outcome"></div>
+            <form id="agent-form" novalidate>
+              <label for="agent-id">Public ElevenLabs agent ID</label>
+              <div class="agent-row">
+                <input id="agent-id" type="text" autocomplete="off" spellcheck="false" placeholder="agent_..." minlength="6" maxlength="128" aria-describedby="agent-hint agent-error" required>
+                <button class="secondary-button" type="submit">Configure</button>
+              </div>
+              <p class="field-hint" id="agent-hint">The ID is not secret. Never enter an API key. The expanded app uses the official @elevenlabs/client SDK.</p>
+              <p class="form-error" id="agent-error" role="alert" hidden></p>
+            </form>
+            <button class="primary-button" id="start-session" type="button" disabled>Start live conversation</button>
+            <p class="session-message" id="setup-message" role="status"></p>
+            <div class="microphone-note">
+              <h4>Microphone and session</h4>
+              <p>Start only when you can speak for 10 to 15 minutes. Your browser asks for microphone access for the live ElevenLabs conversation. Audio and native transcripts go to ElevenLabs under your account settings.</p>
+            </div>
+          </section>
+
+          <section id="session-panel" class="session-panel" hidden aria-label="Live conversation">
+            <div class="session-controls">
+              <button class="text-button" id="reconnect-session" type="button">Reconnect</button>
+              <button class="end-button" id="end-session" type="button" disabled>End conversation</button>
+            </div>
+            <div class="session-toolbar">
+              <span id="voice-mode">Listening</span>
+              <button class="coach-ready" id="coach-ready" type="button" hidden>Script ready</button>
+              <span id="conversation-id">Conversation ID pending</span>
+            </div>
+            <div class="transcript" id="transcript" role="log" aria-live="off" aria-relevant="additions text">
+              <div class="transcript-empty" id="transcript-empty">Maya's first message and your live transcript will appear here.</div>
+            </div>
+            <div class="visually-hidden" id="transcript-announcement" aria-live="polite" aria-atomic="true"></div>
+            <section class="response-coach" id="response-coach" aria-labelledby="response-coach-title">
+              <div class="coach-heading"><h3 id="response-coach-title">Say this to Maya</h3><span>Verbatim script</span></div>
+              <p id="response-context" aria-live="polite">After Maya speaks, your role-specific script will appear here.</p>
+              <div class="verbatim-script" id="verbatim-script" hidden><p></p></div>
+              <div class="script-actions">
+                <button class="secondary-button" id="use-script" type="button" hidden>Edit this script</button>
+              </div>
+              <label class="composer-label" for="composer">Make it your own <span>Optional</span></label>
+              <textarea id="composer" rows="3" maxlength="1600" placeholder="Read the script above as written, or select Edit this script to change it."></textarea>
+              <div class="composer-actions">
+                <span>Nothing auto-sends or auto-speaks.</span>
+                <button class="secondary-button" id="send-text" type="button" disabled>Send as text</button>
+              </div>
+            </section>
+            <p class="form-error" id="session-error" role="alert" hidden></p>
+          </section>
+
+          <section id="evaluation-panel" class="evaluation-panel" hidden>
+            <h3>Review the session evidence</h3>
+            <p>The SDK session ended after at least 10 minutes. Inspect local metrics and ElevenLabs native history. Opening history is required but does not verify evaluation contents or completion.</p>
+            <dl class="evaluation-summary" id="evaluation-summary"></dl>
+            <a class="primary-button evaluation-link" id="open-evaluation" href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener">Open ElevenLabs history</a>
+            <p id="evaluation-opened" role="status"></p>
+            <button class="secondary-button" id="continue-review" type="button" disabled>Continue to FDE review</button>
+          </section>
+
+          <section id="review-stage" class="evaluation-panel" hidden>
+            <h3 id="review-stage-title">Make the human decision</h3>
+            <p id="review-stage-copy"></p>
+            <div id="saved-decision" class="saved-decision" hidden></div>
+            <button class="secondary-button" id="return-evaluation" type="button">Return to evaluation</button>
+          </section>
+        </div>
+        <footer class="stage-footer">
+          <span id="stage-note">Select a track and configure a public agent.</span>
+          <a href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener">ElevenLabs history</a>
+        </footer>
+      </section>
+
+      <aside class="coach-rail" aria-label="Conversation compass and evidence">
+        <div id="coach-content">
+          <section class="session-metrics">
+            <div class="timer-block"><span>Session time</span><strong id="session-timer">00:00</strong><small>12-minute target, 15-minute limit</small></div>
+            <p class="time-cue" id="time-cue">The clock starts with the real session.</p>
+            <div class="ratio-block">
+              <div><span>Your talking share</span><strong id="talk-share">No audio yet</strong></div>
+              <div class="ratio-track" aria-hidden="true"><span id="ratio-fill"></span></div>
+              <p>Goal: 20% talking, 80% listening. Estimated from SDK input/output volume samples. Silence is excluded. This is not a transcript-word measurement.</p>
+            </div>
+          </section>
+          <section class="compass-section">
+            <h2>Conversation compass</h2>
+            <p id="compass-copy"></p>
+          </section>
+          <section class="handoff-section">
+            <h2>FDE handoff cues</h2>
+            <p>Bring in a specialist rather than overcommitting.</p>
+            <ul id="handoff-cues"></ul>
+          </section>
+          <section class="evidence-section">
+            <h2 id="evidence-title">Track evidence</h2>
+            <p>Rules mark topics heard in the live transcript. Excerpts stay in memory and are not persisted.</p>
+            <div id="track-evidence"></div>
+          </section>
+          <section class="signals-section">
+            <h2>Possible buying signals</h2>
+            <p>Local Maya-message patterns only. They do not declare purchase intent.</p>
+            <ul id="buying-signals"><li class="empty-evidence">No signals detected yet.</li></ul>
+          </section>
+        </div>
+        <section id="fde-panel" hidden aria-labelledby="fde-title">
+          <h2 id="fde-title">Human FDE review</h2>
+          <p id="fde-outcome"></p>
+          <form id="review-form" novalidate>
+            <div id="review-criteria"></div>
+            <label class="notes-label" for="reviewer-notes">Reviewer notes</label>
+            <textarea id="reviewer-notes" rows="4" maxlength="1200" placeholder="Cite evidence and the next coaching action."></textarea>
+            <label class="decision-label" for="overall-decision">Overall decision</label>
+            <select id="overall-decision" aria-describedby="review-error" required>
+              <option value="">Choose a decision</option>
+              <option value="pass">Pass</option>
+              <option value="revise">Revise</option>
+              <option value="needs_review">Needs review</option>
+            </select>
+            <label class="confirmation-label"><input id="human-confirmation" type="checkbox" aria-describedby="review-error"><span>I reviewed the available evidence and take responsibility for this human decision.</span></label>
+            <p class="form-error" id="review-error" role="alert" hidden></p>
+            <button class="primary-button full-button" type="submit">Save review</button>
+            <button class="secondary-button full-button" id="print-record" type="button" disabled>Print / save PDF</button>
+            <p class="save-status" id="save-status" role="status"></p>
+          </form>
+        </section>
+      </aside>
+    </div>
+    <p class="page-disclaimer">Independent project by Tony Gilharry. Fictional customer scenario. Not an official ElevenLabs product, production deployment, or accredited credential.</p>
+  </main>
+
+  <section id="print-sheet" class="print-sheet" hidden aria-label="Prototype review record">
+    <header><p>ElevenAgents SI Partner Readiness Lab</p><h1>The Northstar Conversation</h1></header>
+    <div id="print-content"></div>
+    <footer id="print-footer"></footer>
+  </section>
+  <div class="visually-hidden" id="state-announcement" aria-live="polite"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

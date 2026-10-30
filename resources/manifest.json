@@ -1,0 +1,132 @@
+[
+  {
+    "id": "agents-overview",
+    "track": "seller",
+    "title": "ElevenAgents product overview",
+    "note": "The official overview positions voice and chat agents around customer experience, growth, and efficiency, with configuration, deployment, monitoring, and integrations.",
+    "when": "Use after discovery to frame a relevant capability hypothesis. Do not repeat marketing outcomes as Northstar commitments.",
+    "url": "https://elevenlabs.io/agents",
+    "path": "resources/seller/agents-overview.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "agents-support",
+    "track": "seller",
+    "title": "ElevenAgents for Support",
+    "note": "The support page describes SOP-grounded agents, frontline deflection, faster response, human handoffs, guardrails, and analytics.",
+    "when": "Use when Maya asks how routine service could change while preserving human escalation and operational control.",
+    "url": "https://elevenlabs.io/agents/elevenagents-for-support",
+    "path": "resources/seller/agents-support.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "voice-agent-basics",
+    "track": "seller",
+    "title": "What is an AI voice agent?",
+    "note": "This guide distinguishes voice agents from IVR and chatbots, separates suitable AI and human work, and emphasizes use-case selection, success criteria, testing, and deployment discipline.",
+    "when": "Use to narrow the first use case and avoid presenting voice AI as a replacement for all support work.",
+    "url": "https://elevenlabs.io/blog/what-is-an-ai-voice-agent",
+    "path": "resources/seller/voice-agent-basics.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "revolut-story",
+    "track": "seller",
+    "title": "Revolut customer story",
+    "note": "ElevenLabs reports that Revolut reduced time to resolution by more than 8 times in the first rollout phase and expanded multilingual voice support. These are Revolut's reported results only.",
+    "when": "Use only as a sourced proof example, with the exact attribution and no projection onto Northstar's baseline or expected results.",
+    "url": "https://elevenlabs.io/blog/revolut",
+    "path": "resources/seller/revolut-story.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "deutsche-telekom-story",
+    "track": "seller",
+    "title": "Deutsche Telekom partnership story",
+    "note": "The English official story describes network-integrated calling features and contact-center voice work. It also describes joint technical work with ElevenLabs Forward Deployed Engineers.",
+    "when": "Use for telecom context and partner collaboration, not as evidence of Northstar architecture, feasibility, or outcomes.",
+    "url": "https://elevenlabs.io/blog/deutsche-telekom",
+    "path": "resources/seller/deutsche-telekom-story.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "agents-docs",
+    "track": "solutions-consultant",
+    "title": "ElevenAgents documentation overview",
+    "note": "The documentation maps agent architecture, knowledge and RAG, tools, workflows, SDKs, SIP, testing, analytics, and privacy controls.",
+    "when": "Use to build a technical discovery checklist and identify which architecture questions need documentation or specialist validation.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/overview",
+    "path": "resources/solutions-consultant/agents-docs.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "system-tools",
+    "track": "solutions-consultant",
+    "title": "System tools",
+    "note": "System tools cover call state and routing actions, including agent transfer and transfer to a configured human number under defined conditions.",
+    "when": "Use to discuss handoff patterns. Do not imply Northstar has configured a transfer destination or routing workflow.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools",
+    "path": "resources/solutions-consultant/system-tools.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "agent-testing",
+    "track": "solutions-consultant",
+    "title": "Agent testing",
+    "note": "The official testing framework covers next-reply, tool-call, and multi-turn simulation testing, including expected behavior and success conditions.",
+    "when": "Use to propose validation evidence for responses, tool behavior, handoffs, and complete workflows before deployment.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/customization/agent-testing",
+    "path": "resources/solutions-consultant/agent-testing.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "evaluation-framework",
+    "track": "solutions-consultant",
+    "title": "Voice-agent evaluation framework",
+    "note": "The six-pillar framework covers voice quality, conversation quality, task completion, intelligence, safety, and reliability. Its benchmarks are source-specific discussion material.",
+    "when": "Use to broaden validation beyond a happy-path demo. Never import the article's numbers as Northstar targets.",
+    "url": "https://elevenlabs.io/blog/voice-agent-evaluation-framework-6-pillars-explained",
+    "path": "resources/solutions-consultant/evaluation-framework.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "realtime-monitoring",
+    "track": "solutions-consultant",
+    "title": "Real-time monitoring",
+    "note": "The enterprise monitoring guide describes live transcript events and control commands over WebSocket, with permissions, configuration, and event-order limitations.",
+    "when": "Use for operational-observability discovery. Do not imply this app uses monitoring or that the feature is available in every account.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/guides/realtime-monitoring",
+    "path": "resources/solutions-consultant/realtime-monitoring.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "amazon-connect",
+    "track": "solutions-consultant",
+    "title": "Amazon Connect integration",
+    "note": "The guide describes a limited-availability integration where Amazon Connect owns telephony and routing while ElevenAgents handles the conversation, with specific account and workspace prerequisites.",
+    "when": "Use only if Northstar confirms Amazon Connect and the team validates availability. It is not an assumed Northstar integration.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/phone-numbers/c-caa-s-integrations/amazon-connect",
+    "path": "resources/solutions-consultant/amazon-connect.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "genesys",
+    "track": "solutions-consultant",
+    "title": "Genesys integration",
+    "note": "The guide describes Genesys Audio Connector over WebSocket, flow integration, dynamic variables, audio requirements, and unsupported client tools.",
+    "when": "Use only if Northstar confirms Genesys. Validate the current configuration and requirements rather than promising compatibility.",
+    "url": "https://elevenlabs.io/docs/eleven-agents/phone-numbers/c-caa-s-integrations/genesys",
+    "path": "resources/solutions-consultant/genesys.md",
+    "verified": "2026-10-26"
+  },
+  {
+    "id": "trust-reliability",
+    "track": "solutions-consultant",
+    "title": "AI trust and reliability",
+    "note": "The official page discusses guardrails, validation, monitoring, and searchable conversation records. Security, residency, retention, and compliance fit still require current account and configuration review.",
+    "when": "Use to frame security and operational questions, never to guarantee that a specific configuration meets Northstar obligations.",
+    "url": "https://elevenlabs.io/agents/ai-trust-and-reliability",
+    "path": "resources/solutions-consultant/trust-reliability.md",
+    "verified": "2026-10-26"
+  }
+]

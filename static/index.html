@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An independent ElevenAgents partner seller certification lab prototype with live voice role-play and human FDE review.">
+  <title>The First Customer Conversation | Partner Certification Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#lab">Skip to the lab</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Partner Certification Lab home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>Partner Certification Lab</span>
+    </a>
+    <div class="header-actions">
+      <span class="prototype-label">Independent prototype</span>
+      <button class="text-button" id="open-review" type="button">FDE review</button>
+      <button class="text-button" id="restart-lab" type="button" disabled>Restart</button>
+      <button class="text-button danger-text" id="reset-lab" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main id="lab">
+    <section class="lab-heading" aria-labelledby="lab-title">
+      <div>
+        <h1 id="lab-title">The first customer conversation</h1>
+        <p class="lab-kicker"><span>Lab 01</span> Partner seller certification</p>
+        <p class="lab-deck">Earn trust before you explain the technology. Discovery, a credible value case, and a useful next step matter more than a polished pitch.</p>
+      </div>
+      <dl class="lab-facts">
+        <div><dt>Time</dt><dd>12 minutes</dd></div>
+        <div><dt>Format</dt><dd>Live voice</dd></div>
+        <div><dt>Decision</dt><dd>Human review</dd></div>
+      </dl>
+    </section>
+
+    <ol class="certification-loop" aria-label="Certification flow">
+      <li data-loop="brief"><span>1</span><div><strong>Brief</strong><small>Context and criteria</small></div></li>
+      <li data-loop="voice"><span>2</span><div><strong>Voice lab</strong><small>Live customer conversation</small></div></li>
+      <li data-loop="evaluation"><span>3</span><div><strong>Evaluation</strong><small>Native transcript analysis</small></div></li>
+      <li data-loop="review"><span>4</span><div><strong>FDE review</strong><small>Human decision</small></div></li>
+    </ol>
+
+    <div class="workspace">
+      <aside class="account-rail" aria-labelledby="brief-title">
+        <section class="objective-section">
+          <p class="section-label">Your objective</p>
+          <p>Understand Northstar’s service challenge, test whether ElevenAgents is a fit, and agree on a practical next step.</p>
+        </section>
+        <section class="account-brief">
+          <p class="section-label">Fictional account brief</p>
+          <h2 id="brief-title">Northstar Telecom</h2>
+          <p class="account-summary">A regional telecom provider with 420 contact-center agents. Customers repeatedly call for outage updates, billing explanations, and order status.</p>
+          <blockquote>“We need to give customers faster answers without making support feel less human.”</blockquote>
+          <dl class="account-details">
+            <div><dt>Your customer</dt><dd>Maya Chen, VP of Customer Experience</dd></div>
+            <div><dt>Current pressure</dt><dd>Peaks leave customers waiting and agents repeating routine updates.</dd></div>
+            <div><dt>Existing environment</dt><dd>CRM, ticketing, and telephony tools must fit the current operation.</dd></div>
+            <div><dt>Your opening</dt><dd>Explore voice and chat agents for routine service conversations.</dd></div>
+          </dl>
+          <p class="fiction-note">Northstar, Maya, and all account details are fictional. This is not an ElevenLabs customer story.</p>
+        </section>
+        <section class="instructions-section">
+          <p class="section-label">Before you speak</p>
+          <ol>
+            <li>Read the brief and all four criteria.</li>
+            <li>Connect your own public ElevenLabs agent ID.</li>
+            <li>Start the voice call and allow microphone access.</li>
+            <li>End the call, inspect native evaluation, then request FDE review.</li>
+          </ol>
+        </section>
+      </aside>
+
+      <section class="conversation-stage" aria-labelledby="conversation-title">
+        <div class="stage-header">
+          <div class="persona">
+            <span class="persona-monogram" aria-hidden="true">MC</span>
+            <div>
+              <h2 id="conversation-title">Maya Chen</h2>
+              <p>VP of Customer Experience, Northstar Telecom</p>
+            </div>
+          </div>
+          <span class="status-badge" id="attempt-status" data-state="disconnected"><span aria-hidden="true"></span>Disconnected</span>
+        </div>
+
+        <div class="stage-body">
+          <div id="connection-panel" class="connection-panel">
+            <div class="conversation-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <h3>Bring your configured Maya agent</h3>
+            <p class="stage-copy">This portal supplies the assessment and review. ElevenLabs supplies the live voice conversation, transcript, and automated evaluation.</p>
+            <form id="agent-form" novalidate>
+              <label for="agent-id">ElevenLabs agent ID</label>
+              <div class="connect-row">
+                <input id="agent-id" name="agent-id" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="agent_..." minlength="6" maxlength="128" required aria-describedby="agent-hint agent-error">
+                <button class="primary-button" type="submit">Connect agent</button>
+              </div>
+              <p class="field-hint" id="agent-hint">Use an agent ID, not an API key. The ID is not secret and stays in this browser’s localStorage.</p>
+              <p class="form-error" id="agent-error" role="alert" hidden></p>
+            </form>
+            <a class="setup-link" href="https://elevenlabs.io/docs/agents-platform/quickstart" target="_blank" rel="noopener">Official agent setup guide<span class="visually-hidden"> in a new tab</span></a>
+          </div>
+
+          <div id="ready-panel" class="ready-panel" hidden>
+            <div class="ready-note" id="ready-note">
+              <h3>Start with a question, not a pitch</h3>
+              <p>The agent ID is configured locally. Use the official voice control below. Widget insertion does not verify live readiness.</p>
+            </div>
+            <div id="widget-mount" class="widget-mount" aria-label="ElevenLabs voice agent"></div>
+            <div class="widget-recovery">
+              <p>If the control is blank or reports an error, check network access, public-agent settings, and the domain allowlist in ElevenLabs. This portal cannot detect widget connection errors.</p>
+              <button class="text-button" id="reconnect-widget" type="button">Reconnect widget</button>
+              <p id="widget-recovery-status" role="status" aria-live="polite"></p>
+            </div>
+            <div class="stage-actions" id="in-progress-actions" hidden>
+              <p>After you end the voice call, continue to native evaluation. A started call is required.</p>
+              <button class="secondary-button" id="finish-attempt" type="button">Continue to evaluation</button>
+            </div>
+          </div>
+
+          <div id="evaluation-stage" class="review-stage" hidden>
+            <h3>Inspect the native evidence</h3>
+            <p>A voice call started for this attempt. Open ElevenLabs Call history to inspect the transcript, evaluation, and collected data. This portal cannot confirm that analysis finished or read its results.</p>
+            <a class="primary-button evaluation-link" id="open-evaluation" data-open-evaluation href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener">Open ElevenLabs conversation history</a>
+            <p id="evaluation-opened" class="evaluation-status" role="status" aria-live="polite"></p>
+            <button class="secondary-button" id="continue-review" type="button" disabled>Continue to FDE review</button>
+          </div>
+
+          <div id="review-stage" class="review-stage" hidden>
+            <h3 id="review-stage-title">Review the evidence, then make the call</h3>
+            <p id="review-context">Automated evaluation is evidence for the reviewer. It never creates a certification decision in this portal.</p>
+            <div id="saved-decision" class="saved-decision" hidden></div>
+            <button class="secondary-button" id="return-conversation" type="button">Return to evaluation</button>
+          </div>
+        </div>
+
+        <footer class="stage-footer">
+          <span id="stage-footnote">No conversation has started.</span>
+          <a data-open-evaluation href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener">Open ElevenLabs conversation history<span class="visually-hidden"> in a new tab</span></a>
+        </footer>
+      </section>
+
+      <aside class="evidence-rail" aria-labelledby="evidence-title">
+        <section id="criteria-panel">
+          <h2 id="evidence-title">Four passing criteria</h2>
+          <p class="evidence-intro">ElevenLabs evaluates the transcript as success, failure, or unknown, with a rationale. Your FDE makes the final decision.</p>
+          <div class="criterion">
+            <span class="criterion-number">01</span>
+            <div><h3>Customer discovery</h3><p>Uncover the problem, current workflow, impact, and priorities before recommending a solution.</p></div>
+          </div>
+          <div class="criterion">
+            <span class="criterion-number">02</span>
+            <div><h3>Business value</h3><p>Connect the capabilities to Maya’s stated outcomes without inventing ROI or proof.</p></div>
+          </div>
+          <div class="criterion">
+            <span class="criterion-number">03</span>
+            <div><h3>Technical accuracy</h3><p>Address integration, testing, monitoring, reliability, and deployment honestly.</p></div>
+          </div>
+          <div class="criterion">
+            <span class="criterion-number">04</span>
+            <div><h3>Concrete next step</h3><p>Agree on an action, owner, and timing that move the opportunity forward.</p></div>
+          </div>
+          <div class="native-note">
+            <h3>Where results live</h3>
+            <p>Open your agent in ElevenLabs, then select Call history. This portal cannot read the widget’s transcript, evaluation, or collected data.</p>
+          </div>
+        </section>
+
+        <section id="review-panel" class="review-panel" hidden aria-labelledby="review-title">
+          <h2 id="review-title">Human review</h2>
+          <p class="review-instruction">Compare the transcript and native evaluation with the rubric. Unknown means the evidence is insufficient, not a pass.</p>
+          <form id="review-form" novalidate>
+            <fieldset class="review-criterion" aria-describedby="review-error" data-criterion="customer_discovery">
+              <legend>Customer discovery</legend>
+              <div class="rating-options">
+                <label><input type="radio" name="customer_discovery" value="pass"><span>Pass</span></label>
+                <label><input type="radio" name="customer_discovery" value="revise"><span>Revise</span></label>
+                <label><input type="radio" name="customer_discovery" value="needs_review"><span>Needs review</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="review-criterion" aria-describedby="review-error" data-criterion="business_value">
+              <legend>Business value</legend>
+              <div class="rating-options">
+                <label><input type="radio" name="business_value" value="pass"><span>Pass</span></label>
+                <label><input type="radio" name="business_value" value="revise"><span>Revise</span></label>
+                <label><input type="radio" name="business_value" value="needs_review"><span>Needs review</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="review-criterion" aria-describedby="review-error" data-criterion="technical_accuracy">
+              <legend>Technical accuracy</legend>
+              <div class="rating-options">
+                <label><input type="radio" name="technical_accuracy" value="pass"><span>Pass</span></label>
+                <label><input type="radio" name="technical_accuracy" value="revise"><span>Revise</span></label>
+                <label><input type="radio" name="technical_accuracy" value="needs_review"><span>Needs review</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="review-criterion" aria-describedby="review-error" data-criterion="next_step">
+              <legend>Concrete next step</legend>
+              <div class="rating-options">
+                <label><input type="radio" name="next_step" value="pass"><span>Pass</span></label>
+                <label><input type="radio" name="next_step" value="revise"><span>Revise</span></label>
+                <label><input type="radio" name="next_step" value="needs_review"><span>Needs review</span></label>
+              </div>
+            </fieldset>
+            <label class="notes-label" for="reviewer-notes">Reviewer notes</label>
+            <textarea id="reviewer-notes" name="reviewer-notes" rows="4" maxlength="1200" placeholder="Cite what the learner said and what should change."></textarea>
+            <label class="decision-label" for="overall-decision">Overall decision</label>
+            <select id="overall-decision" name="overall-decision" aria-describedby="review-error" required>
+              <option value="">Choose a decision</option>
+              <option value="pass">Pass</option>
+              <option value="revise">Revise</option>
+              <option value="needs_review">Needs review</option>
+            </select>
+            <label class="confirmation-label">
+              <input id="human-confirmation" type="checkbox" aria-describedby="review-error">
+              <span>I reviewed the available evidence and take responsibility for this human decision.</span>
+            </label>
+            <p class="form-error" id="review-error" role="alert" hidden></p>
+            <button class="primary-button full-button" type="submit">Save review</button>
+            <button class="secondary-button full-button" id="print-record" type="button" disabled>Print / save PDF</button>
+            <p class="save-status" id="save-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </aside>
+    </div>
+
+    <p class="page-disclaimer">Independent learning prototype by Tony Gilharry. Not an official ElevenLabs product, accredited certification, or production credential.</p>
+  </main>
+
+  <section id="print-record-sheet" class="print-record-sheet" hidden aria-label="Prototype assessment record">
+    <header><p>ElevenAgents Partner Seller Certification</p><h1>Lab 01: The First Customer Conversation</h1></header>
+    <div id="print-record-content"></div>
+    <footer id="print-record-footer">Independent project and fictional scenario. This prototype record is not an official ElevenLabs certification, an accredited credential, or evidence of production deployment.</footer>
+  </section>
+
+  <div class="visually-hidden" id="state-announcement" aria-live="polite"></div>
+</body>
+</html>

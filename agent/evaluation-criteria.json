@@ -1,0 +1,85 @@
+{
+  "common": [
+    {
+      "id": "common_claim_safety",
+      "name": "common_claim_safety",
+      "description": "Evaluate the learner, not Maya. Return success when the learner separates Northstar facts from unknowns, attributes official product claims and customer stories accurately, acknowledges uncertainty, and proposes validation or specialist help where needed. Return failure for invented Northstar ROI, guaranteed SI revenue or billable rates, projected customer results, unsupported security or compliance claims, unverified integrations, production commitments, or fabricated agreement. Return unknown when the transcript is insufficient. Provide a concise rationale with transcript evidence."
+    }
+  ],
+  "seller": [
+    {
+      "id": "seller_customer_problem",
+      "name": "seller_customer_problem",
+      "description": "Return success only when the partner seller establishes Northstar's repeat-contact problem, current human workflow, customer or operational impact, Maya's priorities, relevant stakeholders, and important unknowns before recommending a path. Return failure for a premature generic pitch, ignored answers, or missing discovery. Return unknown when this seller criterion is irrelevant to the selected track or evidence is insufficient."
+    },
+    {
+      "id": "seller_customer_partner_value",
+      "name": "seller_customer_partner_value",
+      "description": "Return success when the learner connects voice or chat agents to Maya's stated customer outcomes and honestly explains possible SI discovery, validation, implementation, or optimization services as a partner-value hypothesis. Return failure for generic value, invented customer ROI, promised partner revenue, a higher billable rate, or guaranteed paid work. Return unknown when irrelevant to the track or evidence is insufficient."
+    },
+    {
+      "id": "seller_commercial_discipline",
+      "name": "seller_commercial_discipline",
+      "description": "Return success when the learner uses MEDDPICC and Command of the Message naturally where useful, explores decision and proof gaps, and handles customer examples and commercial questions with discipline. Return failure for robotic checklist behavior that misses the point, projected proof, or commercial overcommitment. Return unknown when irrelevant to the track or evidence is insufficient."
+    },
+    {
+      "id": "seller_next_step",
+      "name": "seller_next_step",
+      "description": "Return success only when the partner seller earns a concrete commercial next action with an owner and timing tied to the discovered need, such as a bounded discovery or validation working session. Return failure for no next step, a vague follow-up, or invented agreement. Return unknown when irrelevant to the track or evidence is insufficient."
+    }
+  ],
+  "solutions_consultant": [
+    {
+      "id": "sc_workflow_discovery",
+      "name": "sc_workflow_discovery",
+      "description": "Return success when the solutions consultant maps a routine request's current workflow, systems, data, handoffs, stakeholders, and integration constraints without assuming vendors or architecture. Return failure for superficial discovery or unsupported technical assumptions. Return unknown when irrelevant to the track or evidence is insufficient."
+    },
+    {
+      "id": "sc_validation_coverage",
+      "name": "sc_validation_coverage",
+      "description": "Return success when the learner explores testing, monitoring, failure paths, reliability, deployment constraints, and the evidence required for solution design or validation. The learner need not cover every topic if time is limited but must address concerns raised. Return failure for ignoring material reliability or validation needs. Return unknown when irrelevant to the track or evidence is insufficient."
+    },
+    {
+      "id": "sc_technical_discipline",
+      "name": "sc_technical_discipline",
+      "description": "Return success when the learner distinguishes known facts from unknowns and uses an FDE or specialist appropriately for detailed architecture, security, proof, production, or implementation commitments. Return failure for technical overcommitment or dismissing those concerns. Return unknown when irrelevant to the track or evidence is insufficient."
+    },
+    {
+      "id": "sc_next_step",
+      "name": "sc_next_step",
+      "description": "Return success only when the learner establishes a concrete technical discovery or validation action with an owner, timing, and required inputs. Return failure for no next step, a vague follow-up, or invented agreement. Return unknown when irrelevant to the track or evidence is insufficient."
+    }
+  ],
+  "data_collection": [
+    {
+      "id": "identified_customer_problem",
+      "data_type": "string",
+      "description": "Extract the customer problem and impact established through learner discovery. Do not substitute Maya's unprompted description for learner discovery. Return an empty string if not established."
+    },
+    {
+      "id": "partner_value_hypothesis",
+      "data_type": "string",
+      "description": "For a seller conversation, extract the proposed customer value and possible SI services or revenue hypothesis, preserving qualifications. Return an empty string for a technical-only conversation or when no hypothesis is made."
+    },
+    {
+      "id": "technical_validation_need",
+      "data_type": "string",
+      "description": "Extract the main integration, data, testing, monitoring, reliability, security, deployment, or specialist-validation need discussed. Return an empty string if none is discussed."
+    },
+    {
+      "id": "proposed_next_step",
+      "data_type": "string",
+      "description": "Extract the proposed next action, owner, timing, and whether Maya actually agreed. Return an empty string if no next step was proposed."
+    },
+    {
+      "id": "possible_buying_signals",
+      "data_type": "string",
+      "description": "Extract Maya statements that may indicate interest in a working session, validation, stakeholder alignment, or follow-up. Label them possible signals, not purchase intent. Return the exact text None identified when none appears."
+    },
+    {
+      "id": "unsupported_claims",
+      "data_type": "string",
+      "description": "List unsupported learner claims about ROI, SI revenue, billable rates, customer results, security, compliance, integrations, uptime, latency, pricing, production readiness, or implementation commitments. Return the exact text None identified when none appears."
+    }
+  ]
+}
