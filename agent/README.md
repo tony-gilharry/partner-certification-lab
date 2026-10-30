@@ -23,6 +23,8 @@ The seller and solutions-consultant tracks share one agent. The app sends a cont
 4. Use voice with WebRTC. The app explains microphone access before calling `getUserMedia` and `Conversation.startSession`.
 5. Copy the public agent ID, never an API key.
 
+Public does not mean free or access-controlled. Anyone who obtains the agent ID may be able to start sessions and consume account usage, depending on the agent settings. Never use a production agent. Restrict allowed origins, set account usage limits where available, monitor usage, and disable or delete the demo agent when finished.
+
 The app calls `Conversation.startSession({ agentId, connectionType: "webrtc" })`, stores the real ID from `getId()`, sends the selected track with `sendContextualUpdate`, supports `sendUserMessage` and `sendUserActivity`, and samples `getInputVolume()` and `getOutputVolume()` locally.
 
 ## 3. Add common and track-specific native evaluation

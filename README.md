@@ -1,4 +1,4 @@
-# ElevenAgents SI Partner Readiness Lab
+# Partner Readiness Lab for ElevenAgents
 
 A portfolio example of persona-based partner enablement. A partner seller or partner solutions consultant (partner technologist) rehearses a live voice conversation with Maya Chen, a fictional customer at Northstar Telecom. The lab combines role-specific preparation, real-time ElevenLabs conversations, transparent coaching prompts, evidence rubrics, and human review.
 
@@ -12,7 +12,7 @@ This independent project is not an official ElevenLabs product, production deplo
 
 ## Quick start
 
-Requires a current Node.js release compatible with Vite 8, a modern browser, and your own ElevenLabs account.
+Requires Node.js `^20.19.0` or `>=22.12.0`, a modern browser, and your own ElevenLabs account.
 
 1. Clone and install:
 
@@ -22,7 +22,7 @@ Requires a current Node.js release compatible with Vite 8, a modern browser, and
    npm install
    ```
 
-2. Follow [`agent/README.md`](agent/README.md) to create and configure a dedicated public demo agent in your own ElevenLabs account. Copy the public agent ID, never an API key. Use fictional information only.
+2. Follow [`agent/README.md`](agent/README.md) to create and configure a dedicated public demo agent in your own ElevenLabs account. Copy the public agent ID, never an API key. Keep the demo agent separate from production, restrict its allowed origins, and monitor account usage. Use fictional information only.
 3. Start the app:
 
    ```bash
@@ -109,3 +109,9 @@ The English Deutsche Telekom story was verified and is included. Revolut results
 The production build and mocked browser check cover both tracks, response editing and text sending, transcript categories, methodology and technical evidence, handoffs, possible signals, timer boundaries, listening estimates, early manual end, connecting cancellation, temporary microphone-track cleanup, late SDK responses after cancellation, automatic 15-minute end, evaluation gating, persistence without transcript content, confirmations, and reset. Mock IDs and sessions are test fixtures, not live evidence.
 
 The Partner seller track has been verified with a public Maya agent. Live verification of the new stop control and the Partner solutions consultant track remains pending, including real audio shutdown, technical handoff behavior, an unsupported-claim challenge, and native history. See `agent/README.md` and `RECORDING.md`.
+
+## License and attribution
+
+This project's original code and content are available under the [MIT License](LICENSE), copyright Tony Gilharry.
+
+ElevenLabs, ElevenAgents, and related product names and logos are trademarks of Eleven Labs Inc. This independent project is not affiliated with, endorsed by, or sponsored by ElevenLabs. No official ElevenLabs logo assets are included. The MIT License does not grant rights to third-party trademarks, services, or dependencies. See [NOTICE](NOTICE), the [ElevenLabs brand resources](https://elevenlabs.io/brand), and the [ElevenLabs terms](https://elevenlabs.io/terms).

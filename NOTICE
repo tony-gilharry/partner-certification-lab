@@ -1,0 +1,22 @@
+Partner Readiness Lab
+Copyright 2026 Tony Gilharry
+
+This independent project uses the ElevenLabs JavaScript SDK and references
+official ElevenLabs documentation. It is not affiliated with, endorsed by,
+or sponsored by Eleven Labs Inc.
+
+ElevenLabs, ElevenAgents, and related product names and logos are trademarks
+of Eleven Labs Inc. References to those names identify the third-party
+platform used by this project. No official ElevenLabs logo assets are
+included in this repository. The MIT License applies to this project's
+original code and content, not to ElevenLabs services, trademarks, or other
+third-party intellectual property.
+
+Use of ElevenLabs services is subject to the applicable ElevenLabs terms and
+brand guidelines:
+https://elevenlabs.io/terms
+https://elevenlabs.io/brand
+
+Other company and product names mentioned in referenced materials belong to
+their respective owners. Third-party dependencies remain subject to their
+own licenses.
